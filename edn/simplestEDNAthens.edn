@@ -1,0 +1,71 @@
+#datascript/DB {
+:schema {
+:create/user {:db/valueType :db.type/ref, :db/cardinality :db.cardinality/one}, 
+:plugin/id {:db/unique :db.unique/identity}, 
+:node/subpages {:db/valueType :db.type/ref, 
+:db/cardinality :db.cardinality/many}, 
+:vc/blocks {:db/valueType :db.type/ref, 
+:db/cardinality :db.cardinality/many},
+:edit/seen-by {:db/valueType :db.type/ref,
+:db/cardinality :db.cardinality/many},
+:window/id {:db/unique :db.unique/identity},
+:attrs/lookup {:db/valueType :db.type/ref,
+:db/cardinality :db.cardinality/many},
+:node/windows {:db/valueType :db.type/ref,
+:db/cardinality :db.cardinality/many},
+:d/v {:db/valueType :db.type/ref,
+:db/cardinality :db.cardinality/one},
+:block/clone {:db/valueType :db.type/ref,
+:db/cardinality :db.cardinality/one},
+:node/sections {:db/valueType :db.type/ref, 
+:db/cardinality :db.cardinality/many},
+:harc/v {:db/valueType :db.type/ref,
+:db/cardinality :db.cardinality/many},
+:node/title {:db/unique :db.unique/identity},
+:block/refs {:db/valueType :db.type/ref,
+:db/cardinality :db.cardinality/many},
+:harc/a {:db/valueType :db.type/ref,
+:db/cardinality :db.cardinality/many},
+:edit/user {:db/valueType :db.type/ref,
+:db/cardinality :db.cardinality/one},
+:block/subpage {:db/valueType :db.type/ref,
+:db/cardinality :db.cardinality/one},
+:block/children {:db/valueType :db.type/ref,
+:db/cardinality :db.cardinality/many},
+:block/focused-user {:db/valueType :db.type/ref, :db/cardinality :db.cardinality/one},
+:create/seen-by {:db/valueType :db.type/ref, :db/cardinality :db.cardinality/many},
+:block/uid {:db/unique :db.unique/identity}, :d/e {:db/valueType :db.type/ref,
+:db/cardinality :db.cardinality/one},
+:d/a {:db/valueType :db.type/ref, :db/cardinality :db.cardinality/one},
+:user/uid {:db/unique :db.unique/identity}, :node/links {:db/valueType :db.type/ref,
+:db/cardinality :db.cardinality/many},
+:link/to {:db/valueType :db.type/ref, :db/cardinality :db.cardinality/one},
+:user/email {:db/unique :db.unique/identity},
+:query/results {:db/valueType :db.type/ref, :db/cardinality :db.cardinality/many},
+:harc/e {:db/valueType :db.type/ref, :db/cardinality :db.cardinality/many},
+:block/parents {:db/valueType :db.type/ref, :db/cardinality :db.cardinality/many},
+:graph/name {:db/unique :db.unique/identity},
+:block/page {:db/valueType :db.type/ref,
+:db/cardinality :db.cardinality/one},
+:version/id {:db/unique :db.unique/identity}},
+:datoms [
+[1 :block/children 2 536870912]
+[1 :block/open true 536870912]
+[1 :block/uid "RA1UXmzp0" 536870912]
+[1 :node/title "Page with children" 536870912]
+[2 :block/refs 3 536870912]
+[2 :block/open false 536870912]
+[2 :block/string "[[Child]]" 536870912]
+[2 :block/uid "qTGuhURGk" 536870912]
+[3 :block/children 4 536870912]
+[3 :block/open true 536870912]
+[3 :block/uid "RA1UXmzp1" 536870912]
+[3 :node/title "Child" 536870912]
+[4 :block/children 5 536870912]
+[4 :block/open false 536870912]
+[4 :block/string "**Closed block**" 536870912]
+[4 :block/uid "qTGuhURGo" 536870912]
+[5 :block/open true 536870912]
+[5 :block/string "A block inside the closed block" 536870912]
+[5 :block/uid "qTGuhURGm" 536870912]
+]}
