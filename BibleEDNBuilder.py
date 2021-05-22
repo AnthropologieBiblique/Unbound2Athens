@@ -129,6 +129,7 @@ def bibleParser(dict, title,path,name):
 
 # Same as above but with small modifications to handle the case where there are no unique identifers in the unbound file
 # Theoretically could be used in all case because it just recreates a unique verse number
+# But that would require a complex regex parsing with optional groups that I'm not sure I'm capable of doing
 
 def bibleParserNoNumber(dict, title,path,name):
 	bible = open('input/'+path+'/'+name+'_utf8.txt','r')
