@@ -1,0 +1,8 @@
+#columns	nrsva_book_index	nrsva_chapter	nrsva_verse	orig_book_index	orig_chapter	orig_verse	orig_subverse	orig_is_null
+47N	13	12	47N	13	12		0
+47N	13	12	47N	13	13		0
+47N	13	13	47N	13	14		0
+64N	1	14	64N	1	14		0
+64N	1	15	64N	1	14		0
+66N	12	18	66N	13	1		0
+66N	13	1	66N	13	1		0

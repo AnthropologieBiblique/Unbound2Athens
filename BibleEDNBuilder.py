@@ -174,9 +174,11 @@ bibleBuilder("MRT","french_martin_1744","french_martin_1744")
 bibleBuilder("WLC","wlc","wlc")
 bibleBuilder("GB2000","greek_byzantine_2000","greek_byzantine_2000")
 bibleBuilder("SWE","swedish_1917","swedish_1917")
+bibleBuilder("NOR","norwegian","norwegian")
+bibleBuilder("ROM","romanian_cornilescu","romanian_cornilescu")
 
-#bibleBuilder("NOR","norwegian","norwegian")
-#bibleBuilder("ROM","romanian_cornilescu","romanian_cornilescu")
+# /!\ Caution, these need to be processed with the /tests/bibleEDNBuilderNoNumber.py instead
+#bibleBuilder("SVD","arabic_svd","arabic_svd")
 
 # /!\ Caution, these don't work for the moment (script runs, but Athens can't import)
 #bibleBuilder("WEB","web","web")
@@ -185,8 +187,7 @@ bibleBuilder("SWE","swedish_1917","swedish_1917")
 #bibleBuilder("VUL","latin_nova_vulgata","latin_nova_vulgata")
 #bibleBuilder("LSG","french_lsg","french_lsg")
 
-# /!\ Caution, these need to be processed with the /tests/bibleEDNBuilderNoNumber.py instead
-#bibleBuilder("SVD","arabic_svd","arabic_svd")
+# /!\ Caution, these need to be processed with the /tests/bibleEDNBuilderNoNumber.py instead AND they don't work (script runs, but Athens can't import)
 #bibleBuilder("PST","peshitta","peshitta")
 
 
