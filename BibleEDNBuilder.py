@@ -172,9 +172,9 @@ bibleBuilder("LXX","lxx_a_unaccented","lxx_a_unaccented")
 bibleBuilder("MYANMAR","myanmar_judson_1835","myanmar_judson_1835")
 bibleBuilder("MRT","french_martin_1744","french_martin_1744")
 bibleBuilder("WLC","wlc","wlc")
+bibleBuilder("GB2000","greek_byzantine_2000","greek_byzantine_2000")
+bibleBuilder("SWE","swedish_1917","swedish_1917")
 
-#bibleBuilder("GB2000","greek_byzantine_2000","greek_byzantine_2000")
-#bibleBuilder("SWE","swedish_1917","swedish_1917")
 #bibleBuilder("NOR","norwegian","norwegian")
 #bibleBuilder("ROM","romanian_cornilescu","romanian_cornilescu")
 
