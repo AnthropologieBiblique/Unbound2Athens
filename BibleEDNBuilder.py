@@ -166,8 +166,9 @@ def bibleBuilder(title,path,name):
 # Most of them will work, though
 # Some of them, despite the script running well, won't import into Athens, I still don't know why
 
-bibleBuilder("WLC","wlc","wlc")
-#bibleBuilder("ASV","asv","asv")
+bibleBuilder("ASV","asv","asv")
+bibleBuilder("YLT","ylt","ylt")
+
 #bibleBuilder("WEB","web","web")
 #bibleBuilder("MYANMAR","myanmar_judson_1835","myanmar_judson_1835")
 #bibleBuilder("LXX","lxx_a_unaccented","lxx_a_unaccented")
@@ -178,8 +179,8 @@ bibleBuilder("WLC","wlc","wlc")
 #bibleBuilder("PST","peshitta","peshitta")
 #bibleBuilder("SRV","spanish_reina_valera_1909","spanish_reina_valera_1909")
 #bibleBuilder("SVD","arabic_svd","arabic_svd")
-#bibleBuilder("YLT","ylt","ylt")
 #bibleBuilder("GB2000","greek_byzantine_2000","greek_byzantine_2000")
 #bibleBuilder("SWE","swedish_1917","swedish_1917")
 #bibleBuilder("NOR","norwegian","norwegian")
 #bibleBuilder("ROM","romanian_cornilescu","romanian_cornilescu")
+#bibleBuilder("WLC","wlc","wlc")
