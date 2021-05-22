@@ -168,10 +168,10 @@ def bibleBuilder(title,path,name):
 
 bibleBuilder("ASV","asv","asv")
 bibleBuilder("YLT","ylt","ylt")
+bibleBuilder("LXX","lxx_a_unaccented","lxx_a_unaccented")
+bibleBuilder("MYANMAR","myanmar_judson_1835","myanmar_judson_1835")
 
 #bibleBuilder("WEB","web","web")
-#bibleBuilder("MYANMAR","myanmar_judson_1835","myanmar_judson_1835")
-#bibleBuilder("LXX","lxx_a_unaccented","lxx_a_unaccented")
 #bibleBuilder("VUL","latin_nova_vulgata","latin_nova_vulgata")
 #bibleBuilder("LSG","french_lsg","french_lsg")
 #bibleBuilder("DRB","french_darby","french_darby")
