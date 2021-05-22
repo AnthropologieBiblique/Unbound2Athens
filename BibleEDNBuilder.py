@@ -127,8 +127,42 @@ def bibleParser(dict, title,path,name):
 			writeLine(parsedBible,createUIDDatom(verse[4]))
 			writeLine(parsedBible,createStringDatom(verse[4],verseText))
 
+# Same as above but with small modifications to handle the case where there are no unique identifers in the unbound file
+# Theoretically could be used in all case because it just recreates a unique verse number
+
+def bibleParserNoNumber(dict, title,path,name):
+	bible = open('input/'+path+'/'+name+'_utf8.txt','r')
+	parsedBible = open('output/'+title+'verses'+'.edn','a')
+	book = "00"
+	chapter = "00"
+	indent = 10
+	for line in bible:
+		verse = re.findall(r'(\d\d)[A-Z]\s(\d+)\s+(\d+)\s(.+)',line)
+		if not verse:
+			pass
+		else:
+			verse = verse[0]
+			if verse[0]!=book:
+				writeLine(parsedBible,createOpenDatom("888"+verse[0]))
+				writeLine(parsedBible,createUIDDatom("888"+verse[0]))
+				writeLine(parsedBible,createTitleDatom("888"+verse[0],"📖 "+title+" "+dict[verse[0]]))
+				book = verse[0]
+			if verse[1]!=chapter:
+				writeLine(parsedBible,createChildrenDatom("888"+verse[0],"777"+verse[0]+verse[1]))
+				writeLine(parsedBible,createClosedDatom("777"+verse[0]+verse[1]))
+				writeLine(parsedBible,createUIDDatom("777"+verse[0]+verse[1]))
+				chapterTitle = "📜 "+dict[verse[0]]+" "+verse[1]
+				writeLine(parsedBible,createStringDatom("777"+verse[0]+verse[1],chapterTitle))
+				chapter = verse[1]
+			verseText = "^^"+dict[verse[0]]+" "+verse[1]+":"+verse[2]+"^^ "+verse[3]
+			writeLine(parsedBible,createChildrenDatom("777"+verse[0]+verse[1],indent))
+			writeLine(parsedBible,createOpenDatom(indent))
+			writeLine(parsedBible,createUIDDatom(indent))
+			writeLine(parsedBible,createStringDatom(indent,verseText))
+			indent+=10
+
 # This collects the different pieces to create a title.edn file that (hopefully !) can directly be imported into Athens
-def bibleBuilder(title,path,name):
+def bibleBuilder(title,path,name,number):
 	### PROGRAM ###
 	open('output/'+title+'page.edn', 'w')
 	open('output/'+title+'.edn','w')
@@ -145,7 +179,10 @@ def bibleBuilder(title,path,name):
 	terminateBiblePage(title)
 
 	### PARSING BIBLE
-	bibleParser(bookDict, title,path,name)
+	if number:
+		bibleParser(bookDict, title,path,name)
+	else:
+		bibleParserNoNumber(bookDict, title,path,name)
 
 	### CREATION EDN
 	bible = open('output/'+title+'.edn','a')
@@ -162,32 +199,25 @@ def bibleBuilder(title,path,name):
 	for line in suffix:
 		writeLine(bible,line)
 
-# /!\ Some bibles don't have a unique ID for each verse. In this case you should use the tests/bibleEDNBuilderNoNumber.py script, slightly different
-# Most of them will work, though
-# Some of them, despite the script running well, won't import into Athens, I still don't know why
 
-bibleBuilder("ASV","asv","asv")
-bibleBuilder("YLT","ylt","ylt")
-bibleBuilder("LXX","lxx_a_unaccented","lxx_a_unaccented")
-bibleBuilder("MYANMAR","myanmar_judson_1835","myanmar_judson_1835")
-bibleBuilder("MRT","french_martin_1744","french_martin_1744")
-bibleBuilder("WLC","wlc","wlc")
-bibleBuilder("GB2000","greek_byzantine_2000","greek_byzantine_2000")
-bibleBuilder("SWE","swedish_1917","swedish_1917")
-bibleBuilder("NOR","norwegian","norwegian")
-bibleBuilder("ROM","romanian_cornilescu","romanian_cornilescu")
+bibleBuilder("ASV","asv","asv",True)
+bibleBuilder("YLT","ylt","ylt",True)
+bibleBuilder("LXX","lxx_a_unaccented","lxx_a_unaccented",True)
+bibleBuilder("MYANMAR","myanmar_judson_1835","myanmar_judson_1835",True)
+bibleBuilder("MRT","french_martin_1744","french_martin_1744",True)
+bibleBuilder("WLC","wlc","wlc",True)
+bibleBuilder("GB2000","greek_byzantine_2000","greek_byzantine_2000",True)
+bibleBuilder("SWE","swedish_1917","swedish_1917",True)
+bibleBuilder("NOR","norwegian","norwegian",True)
+bibleBuilder("ROM","romanian_cornilescu","romanian_cornilescu",True)
+bibleBuilder("SVD","arabic_svd","arabic_svd",False)
 
-# /!\ Caution, these need to be processed with the /tests/bibleEDNBuilderNoNumber.py instead
-#bibleBuilder("SVD","arabic_svd","arabic_svd")
-
-# /!\ Caution, these don't work for the moment (script runs, but Athens can't import)
-#bibleBuilder("WEB","web","web")
-#bibleBuilder("DRB","french_darby","french_darby")
-#bibleBuilder("SRV","spanish_reina_valera_1909","spanish_reina_valera_1909")
-#bibleBuilder("VUL","latin_nova_vulgata","latin_nova_vulgata")
-#bibleBuilder("LSG","french_lsg","french_lsg")
-
-# /!\ Caution, these need to be processed with the /tests/bibleEDNBuilderNoNumber.py instead AND they don't work (script runs, but Athens can't import)
-#bibleBuilder("PST","peshitta","peshitta")
+# /!\ Caution, these don't work for the moment (script runs, but Athens can't import. I still don't know why)
+#bibleBuilder("WEB","web","web",True)
+#bibleBuilder("DRB","french_darby","french_darby",True)
+#bibleBuilder("SRV","spanish_reina_valera_1909","spanish_reina_valera_1909",True)
+#bibleBuilder("VUL","latin_nova_vulgata","latin_nova_vulgata",True)
+#bibleBuilder("LSG","french_lsg","french_lsg",True)
+#bibleBuilder("PST","peshitta","peshitta",False)
 
 
