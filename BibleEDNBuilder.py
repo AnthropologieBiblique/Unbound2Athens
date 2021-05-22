@@ -162,7 +162,7 @@ def bibleBuilder(title,path,name):
 	for line in suffix:
 		writeLine(bible,line)
 
-# /!\ Some bibles don't have a unique ID for each verse. In this case you should use the test/bibleEDNBuilderNoNumber.py script, slightly different
+# /!\ Some bibles don't have a unique ID for each verse. In this case you should use the tests/bibleEDNBuilderNoNumber.py script, slightly different
 # Most of them will work, though
 # Some of them, despite the script running well, won't import into Athens, I still don't know why
 
@@ -170,17 +170,23 @@ bibleBuilder("ASV","asv","asv")
 bibleBuilder("YLT","ylt","ylt")
 bibleBuilder("LXX","lxx_a_unaccented","lxx_a_unaccented")
 bibleBuilder("MYANMAR","myanmar_judson_1835","myanmar_judson_1835")
+bibleBuilder("MRT","french_martin_1744","french_martin_1744")
+bibleBuilder("WLC","wlc","wlc")
 
-#bibleBuilder("WEB","web","web")
-#bibleBuilder("VUL","latin_nova_vulgata","latin_nova_vulgata")
-#bibleBuilder("LSG","french_lsg","french_lsg")
-#bibleBuilder("DRB","french_darby","french_darby")
-#bibleBuilder("MRT","french_martin_1744","french_martin_1744")
-#bibleBuilder("PST","peshitta","peshitta")
-#bibleBuilder("SRV","spanish_reina_valera_1909","spanish_reina_valera_1909")
-#bibleBuilder("SVD","arabic_svd","arabic_svd")
 #bibleBuilder("GB2000","greek_byzantine_2000","greek_byzantine_2000")
 #bibleBuilder("SWE","swedish_1917","swedish_1917")
 #bibleBuilder("NOR","norwegian","norwegian")
 #bibleBuilder("ROM","romanian_cornilescu","romanian_cornilescu")
-#bibleBuilder("WLC","wlc","wlc")
+
+# /!\ Caution, these don't work for the moment (script runs, but Athens can't import)
+#bibleBuilder("WEB","web","web")
+#bibleBuilder("DRB","french_darby","french_darby")
+#bibleBuilder("SRV","spanish_reina_valera_1909","spanish_reina_valera_1909")
+#bibleBuilder("VUL","latin_nova_vulgata","latin_nova_vulgata")
+#bibleBuilder("LSG","french_lsg","french_lsg")
+
+# /!\ Caution, these need to be processed with the /tests/bibleEDNBuilderNoNumber.py instead
+#bibleBuilder("SVD","arabic_svd","arabic_svd")
+#bibleBuilder("PST","peshitta","peshitta")
+
+
