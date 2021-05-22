@@ -53,7 +53,6 @@
 [1 :block/open true 536870912]
 [1 :block/uid "RA1UXmzp0" 536870912]
 [1 :node/title "Page with children" 536870912]
-[2 :block/refs 3 536870912]
 [2 :block/open false 536870912]
 [2 :block/string "[[Child]]" 536870912]
 [2 :block/uid "qTGuhURGk" 536870912]
