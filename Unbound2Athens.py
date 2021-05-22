@@ -164,28 +164,28 @@ def bibleParserNoNumber(dict, title,path,name):
 
 # This collects the different pieces to create a title.edn file that (hopefully !) can directly be imported into Athens
 def bibleBuilder(title,path,name,number):
-	### PROGRAM ###
+	# Clean up the files in case they already exist
 	open('output/'+title+'page.edn', 'w')
 	open('output/'+title+'.edn','w')
 	open('output/'+title+'verses.edn','w')
 
-	### CREATION DICTIONNAIRE
+	# Create a bible books list and dictionnary
 	bookList = bookNameParser(path)
 	bookDict = dict(bookList)
 
-	### CREATION PAGE BIBLE AVEC BLOCKS LIVRES
+	# Create the main Bible page with its link blocks
 	for book in bookList:
 		createBookBlock(book, title)
 		terminateBookPage(book, title)
 	terminateBiblePage(title)
 
-	### PARSING BIBLE
+	# Parse the bible
 	if number:
 		bibleParser(bookDict, title,path,name)
 	else:
 		bibleParserNoNumber(bookDict, title,path,name)
 
-	### CREATION EDN
+	# Concatenate the different files to create a final .edn
 	bible = open('output/'+title+'.edn','a')
 	prefix = open('edn/prefix.edn','r')
 	suffix = open('edn/suffix.edn','r')
